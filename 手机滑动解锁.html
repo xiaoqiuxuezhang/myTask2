@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{background: indianred;}
+        @keyframes shine {
+            from {background-position:-500px;}
+
+            to {background-position: 500px;}
+        }
+        .box{
+            width: 500px;
+            height:100px;
+            text-align: center;
+            font-size: 50px;
+            line-height: 100px;
+            margin: 200px auto;
+            -webkit-background-clip:text;
+            background: -webkit-linear-gradient(-45deg,rgba(0,0,0,0.6) 30%,#aff0ff 50%, rgba(0, 0, 0, 0.6) 70%);
+            animation:shine 3s linear infinite;
+
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="box">
+
+        手机滑动解锁
+    </div>
+</body>
+</html>

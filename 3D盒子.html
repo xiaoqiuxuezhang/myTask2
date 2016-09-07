@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin:0;padding: 0;}
+        .box{
+            width:300px;
+            height:300px;
+            margin:200px auto;
+            position: relative;
+            -webkit-transform-style:preserve-3d;
+            -webkit-transform:perspective(800px) rotateY(30deg) rotateX(30deg);
+            -webkit-transition:3s all linear ;
+
+        }
+        .box div{
+            position: absolute;
+            top:0;
+            left:0;
+            text-align: center;
+            line-height: 300px;
+            width:100%;
+            height:100%;
+            font-size: 100px;
+            color:red;
+        }
+        .box .front{
+            -webkit-transform:translateZ(150px);
+            background: aqua;
+            opacity: 0.3;
+        }
+        .box .back{
+            -webkit-transform:translateZ(-150px);
+            background: deeppink;
+            opacity: 0.3;
+        }
+        .box .left{
+            -webkit-transform:translate(-150px,0) rotateY(-90deg);
+            background: lightseagreen;
+            opacity: 0.3;
+        }
+        .box .right{
+            -webkit-transform:translate(150px,0) rotateY(90deg);
+            background: blueviolet;
+            opacity: 0.3;
+        }
+        .box .top{
+            -webkit-transform:translate(0,150px) rotateX(90deg);
+            background: orangered;
+            opacity: 0.3;
+        }
+        .box .right{
+            -webkit-transform:translate(0,-150) rotateX(-90deg);
+            background: blueviolet;
+            opacity: 0.5;
+        }
+        .box:hover{
+            -webkit-transform:perspective(800px) rotateZ(360deg) rotateX(360deg);
+        }
+
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="front">前</div>
+    <div class="back">后</div>
+    <div class="left">左</div>
+    <div class="right">右</div>
+    <div class="top">上</div>
+    <div class="bottom">下</div>
+</div>
+</body>
+</html>

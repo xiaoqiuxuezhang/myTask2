@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin: 0;padding: 0;}
+        .clock{
+            width:300px;
+            height:300px;
+            border-radius: 50%;
+            border: 2px solid #000;
+            margin: 200px auto;
+            position: relative;
+            -webkit-transition: 1s linear all;
+        }
+        .hour{
+            width:10px;
+            height:60px;
+            position: absolute;
+            left:50%;
+            top:50%;
+            margin-left:-6px;
+            margin-top:-60px;
+            background:black ;
+            border-radius:50% 50% 0 0;
+            -webkit-transform-origin:center bottom;
+        }
+        .min{
+            width:8px;
+            height:90px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left:-4px;
+            margin-top:-90px;
+            background:black ;
+            border-radius:50% 50% 0 0;
+            -webkit-transform-origin:center bottom;
+        }
+        .sec{
+            width:4px;
+            height:120px;
+            position: absolute;
+            left: 50%;
+            top:50%;
+            margin-left:-2px;
+            margin-top:-120px;
+            background:red ;
+            border-radius:50% 50% 0 0;
+            -webkit-transform-origin:center bottom;
+        }
+        .round{
+            width: 8px;
+            height: 8px;
+            position: absolute;
+            left: 50%;
+            top:50%;
+            margin-left:-6px;
+            margin-top:-6px;
+            border-radius: 50%;
+            border:3px solid #000;
+            background:-webkit-radial-gradient(#fff, #000);
+        }
+        .clock span.big_scale{
+            width:6px;
+            margin-left:-3px;
+            height:15px;
+        }
+        .big_scale em{
+            position:absolute;
+            top:18px;
+            left:50%;
+            font-style:normal;
+            width:30px;
+            margin-left:-15px;
+            text-align:center;
+        }
+        .clock span{
+            position: absolute;
+            width: 4px;
+            height: 10px;
+            background: #000;
+            left: 50%;
+            margin-left: -2px;
+            top: 0;
+            -webkit-transform-origin: center 150px;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var oClock=document.querySelector('.clock');
+            var oHour=document.querySelector('.hour');
+            var oMin=document.querySelector('.min');
+            var oSec=document.querySelector('.sec');
+            //创建刻度
+            var N=60;
+            for(var i=0; i<N;i++){
+                var oS=document.createElement('span');
+                oS.style.webkitTransform='rotate('+i*6+'deg)';
+                if(i%5==0){
+                    oS.className='big_scale';
+                    oS.innerHTML='<em>'+(i/5||12)+'<\/em>';
+                    var oEm=oS.children[0];
+                    oEm.style.webkitTransform='rotate('+-i*6+'deg)';
+                }
+                oClock.appendChild(oS);
+            }
+            function clock(){
+                var oDate=new Date;
+                var h=oDate.getHours();
+                var m=oDate.getMinutes();
+                var s=oDate.getSeconds();
+                oHour.style.webkitTransform='rotate('+h*30+'deg)';
+                oMin.style.webkitTransform='rotate('+m*6+'deg)';
+                oSec.style.webkitTransform='rotate('+s*6+'deg)';
+            }
+            clock();
+            setInterval(clock,1000);
+
+
+
+
+        };
+    </script>
+</head>
+<body>
+<div  class="clock">
+    <div class="hour"></div>
+    <div class="min"></div>
+    <div class="sec"></div>
+    <div class="round"></div>
+</div>
+</body>
+</html>
